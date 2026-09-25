@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base-950 text-ink-100 font-body antialiased;
+    background-image: radial-gradient(
+        circle at 15% 0%,
+        rgba(59, 130, 246, 0.14),
+        transparent 45%
+      ),
+      radial-gradient(circle at 85% 20%, rgba(94, 211, 252, 0.08), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #5ea1ff;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-hover {
+    @apply transition-colors duration-300 hover:border-electric-500/30 hover:bg-white/[0.05];
+  }
+
+  .container-shell {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs tracking-wide text-electric-glow/80;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-electric-400 via-electric-glow to-electric-500 bg-clip-text text-transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
